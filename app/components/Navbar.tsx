@@ -4,10 +4,13 @@ import { useRouter } from "next/navigation"
 import { github } from "../utils/Icons";
 import { ThemeDropdown } from "./ThemeDropdown/ThemeDropdown";
 import SearchDialog from "./SearchDialog/SearchDialog";
+import { useGlobalContext } from "../context/globalContext";
 
 const Navbar = () => {
 
     const router = useRouter();
+    const { forecast } = useGlobalContext();
+    // console.log(forecast)
 
     return (
         <nav className="w-full py-4 flex items-center justify-between">

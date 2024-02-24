@@ -1,9 +1,10 @@
 'use client'
 
 import { commandIcon } from '@/app/utils/Icons'
+import defaultCities from '@/app/utils/defaultCities'
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogTrigger } from '@/components/ui/dialog'
-import React from 'react'
+import { Command, CommandInput } from '@/components/ui/command'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 
 const SearchDialog = () => {
     return (
@@ -19,6 +20,19 @@ const SearchDialog = () => {
                         </div>
                     </Button>
                 </DialogTrigger>
+
+
+                <DialogContent className='p-0'>
+                    <Command className='rounded-lg border shadow-md'>
+                        <CommandInput placeholder='Type a command or search...' />
+                        <ul className='px-3 pb-2'>
+                            <p className='p-2 text-sm text-muted-foreground '>Suggestions</p>
+                            {defaultCities.map((c) => (
+                                <p key={c.name}>{c.name }</p>
+                            ))}
+                        </ul>
+                    </Command>
+                </DialogContent>
             </Dialog>
         </div>
     )
